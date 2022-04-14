@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>아이디 중복 체크</title>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
+ 		function fn_process() {
+    		var _id=$("#t_id").val();	// 텍스트 박스에 입력한 ID를 가져옴
+    		if(_id=='') {
+   	 			alert("ID를 입력하세요");	// ID를 입력하지 않으면 오류 메시지를 출력
+   	 			return;
+    		}
+    		$.ajax({
+       			type:"post",
+       			async:true,  
+       			url:"http://localhost:8090/pro16/mem",
+       			dataType:"text",
+       			data: {id:_id},			// ID를 서블릿으로 전송
+       			success:function(data,textStatus){
+    	   			// alert(data);
+    	   			
+    	   			// 서버에서 전송된 결과에 따라 메시지를 표시
+	          		if(data=='usable'){
+	       	   			$('#message').text("사용할 수 있는 ID입니다.");
+	       	   			
+	       	   			// 사용할 수 있는 ID면 버튼을 비활성화
+	       	   			$('#btnDuplicate').prop("disabled", true);
+	          		}else{
+	       	   			$('#message').text("사용할 수 없는 ID입니다.");
+	          		}
+       			},
+       			error:function(data,textStatus){
+          			alert("에러가 발생했습니다.");ㅣ
+       			},
+       			complete:function(data,textStatus){
+          			//alert("작업을완료 했습니다");
+       			}
+    		});  //end ajax	 
+ 		}		
+</script>
+</head>
+<body>
+   	<input type="text" id="t_id"/>
+   	<input type="button" id="btnDuplicate" value="ID 중복체크하기" onClick="fn_process()"/><br><br>
+   	<div id="message"></div>
+</body>
+</html>

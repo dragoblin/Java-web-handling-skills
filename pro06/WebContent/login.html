@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인 창</title>
+</head>
+<body>
+	<form name="frmLogin" method="post" action="login4" encType="UTF-8">
+		<!-- action="login" : 입력된 데이터를 서블릿 매핑 이름이 login인 서블릿으로 전송 -->
+		아이디 : <input type="text" name="user_id"><br>
+		<!-- name="user_id" : 텍스트 박스에 입력된 ID를 user_id로 전송 -->
+		비밀번호 : <input type="password" name="user_pw"><br>
+		<input type="submit" value="로그인"> <input type="reset" value="다시입력">
+	</form>
+</body>
+</html>

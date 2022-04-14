@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>로그인 창</title>
+</head>
+<body>
+	<!-- test01 폴더에 위치한 HTML에서 서블릿에 요청하므로 action 속성에서 서블릿 매핑
+	     이름 앞에 프로젝트 이름 /pro06을 붙여주어야 함 --> 
+	<form name="frmLogin" method="post" action="/pro06/loginTest2" encType="UTF-8">
+		<!-- 텍스트 박스에 입력한 ID를 name 속성인 user_id, user_pw 로 전송 -->
+		아이디 : <input type="text" name="user_id"><br>
+		비밀번호 : <input type="password" name="user_pw"><br>
+		<input type="submit" value="로그인">
+		<input type="reset" value="다시 입력">
+	</form>
+</body>
+</html>

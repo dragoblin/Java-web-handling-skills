@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+   <!-- <bean> 태그를 이용해 PersonServiceImpl 객체(빈)를 생성한 후 빈 id 를 personService 로 지정  -->
+   <bean id="personService" class="com.spring.ex01.PersonServiceImpl">
+   
+      <!-- PersonServiceImpl 객체의 속성 name 값을 <value> 태그를 이용해 '홍길동'으로 초기화 -->
+      <property name="name">
+         <value>홍길동</value>
+      </property>
+      
+   </bean>
+   
+   <!-- 인자가 한 개인 생성자로 id가 personService1인 빈을 생성
+        생성자로 value인 이순신을 전달하여 속성 name을 초기화 -->
+   <bean id="personService1" class="com.spring.ex02.PersonServiceImpl">
+      <constructor-arg value="이순신"/>
+   </bean>
+   
+   <!-- 인자가 두 개인 생성자로 id가 personService2인 빈을 생성
+        생성자로 두 개의 값을 전달하여 name과 age를 초기화 -->
+   <bean id="personService2" class="com.spring.ex02.PersonServiceImpl">
+      <constructor-arg value="손흥민"/>
+      <constructor-arg value="23"/>
+   </bean>
+   
+</beans>

@@ -1,0 +1,43 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.myboot03'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2'
+	
+	// JSP를 사용하기 위해 반드시 추가
+	implementation('org.apache.tomcat.embed:tomcat-embed-jasper')
+    implementation('javax.servlet:jstl:1.2')
+    
+    // 프로젝트 루트 디렉터리의 libs 디렉터리의 jar 파일을 읽어 들임
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	
+	// 오라클 드라이버를 로컬 리포지토리에 추가
+    implementation files('libs/ojdbc6.jar')
+    
+    // 타일즈 기능을 사용하기 위해 추가
+    //implementation('org.apache.tiles:tiles-jsp:3.0.4')
+    // https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp
+	implementation group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.8'
+    
+    
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

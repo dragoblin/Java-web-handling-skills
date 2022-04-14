@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>Class 셀렉터 연습</title>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript"> 
+ 		function addImage() {
+ 			
+ 			// 버튼 클릭 시 클래스 이름이 class1인 태그를 찾아서 <img> 태그를 추가
+	 		$(".class1").html("<img src='../image/duke.png'>");
+ 			
+ 		}
+	</script>
+</head>
+<body>
+
+	<!-- 클래스 이름이 class1로 지정 -->
+  	<div class="class1">
+  	</div>
+  	<div class="class1">
+  	</div>
+  	
+  	<input type="button" value="이미지 추가하기" onClick="addImage()" />
+</body>
+</html>
